@@ -21,12 +21,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-              - install: necessary Python packages
-                - run: pip install pandas beautifulsoup4 requests
-        
+      - name: Install necessary Python packages
+        run: pip install pandas beautifulsoup4 requests
       # MAKE SURE YOUR SCRAPER FILENAME MATCHES THE FILENAME HERE!!
       - name: Run the scraping script
-        run: python scrape.py
+        run: python scraper.py
       # I just stole the rest of this code so don't ask me questions about it
       - name: Commit and push if content changed
         run: |-
@@ -36,4 +35,3 @@ jobs:
           timestamp=$(date -u)
           git commit -m "Latest data: ${timestamp}" || exit 0
           git push
-12:33
